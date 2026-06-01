@@ -43,7 +43,7 @@ else:
                 }
                 
                 payload = {
-                    "model": "gpt-4o-mini",
+                    "model": "agnes-2.0-flash",
                     "messages": [
                         {"role": "system", "content": "You are an expert viral video strategist."},
                         {"role": "user", "content": system_prompt}
