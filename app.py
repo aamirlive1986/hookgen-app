@@ -23,7 +23,7 @@ else:
         tone = st.selectbox("Select Script Tone", ["High Energy", "Funny", "Professional", "Storytelling"])
         submitted = st.form_submit_button("Generate Viral Script 🚀")
 
-    # 4. Processing the API Request with platform.agnes-ai.com
+    # 4. Processing the API Request with Agnes AI
     if submitted:
         if not topic or not audience:
             st.error("Please fill in both the topic and audience fields.")
@@ -34,9 +34,8 @@ else:
                 system_prompt = f"You are an expert viral video strategist. Write 5 different high-retention opening hooks and a 30-second high-energy script for the topic: '{topic}', specifically targeted at {audience}. Use a {tone} tone. Make it engaging and viral-worthy."
                 
                 # Agnes AI API Configuration
-                # Replace 'YOUR_AGNES_API_KEY' with your actual key from platform.agnes-ai.com
-                AGNES_API_KEY = "YOUR_AGNES_API_KEY" 
-                url = "https://agnes-ai.com" # Update endpoint if Agnes-AI documentation specifies a different route
+                AGNES_API_KEY = "sk-jgAtOKDypV6DaWJT8Gc4Dg74OGQvKuvilwiusbLaltdCmdCq"
+                url = "https://api.agnes-ai.com/v1/chat/completions"
                 
                 headers = {
                     "Authorization": f"Bearer {AGNES_API_KEY}",
@@ -44,8 +43,9 @@ else:
                 }
                 
                 payload = {
-                    "model": "gpt-4o-mini", # Switch to the model name you use inside your Agnes portal
+                    "model": "gpt-4o-mini",
                     "messages": [
+                        {"role": "system", "content": "You are an expert viral video strategist."},
                         {"role": "user", "content": system_prompt}
                     ]
                 }
@@ -64,7 +64,7 @@ else:
                         st.text_area("Copy your script here:", value=ai_script, height=400)
                         st.balloons()
                     else:
-                        st.error(f"API Error from Agnes AI: {response.text}")
+                        st.error(f"API Error from Agnes AI: {response.status_code} - {response.text}")
                         
                 except Exception as e:
                     st.error(f"Failed to connect to the server: {str(e)}")
