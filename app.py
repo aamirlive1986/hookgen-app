@@ -31,7 +31,7 @@ else:
             with st.spinner("Agnes AI is analyzing viral trends and writing your script..."):
                 
                 # Constructing the exact prompt payload
-                system_prompt = f"You are an expert viral video strategist. Write 5 different high-retention opening hooks and a 30-second high-energy script for the topic: '{topic}', specifically targeting: '{audience}'. Use a {tone} tone."
+                system_prompt = f"You are an expert viral video strategist. Write 5 different high-retention opening hooks and a 30-second high-energy script for the topic: '{topic}', specifically tar[...]
                 
                 # Agnes AI API Configuration
                 # Replace 'YOUR_AGNES_API_KEY' with your actual key from platform.agnes-ai.com
@@ -54,7 +54,7 @@ else:
                     # Making the live HTTP call
                     response = requests.post(url, json=payload, headers=headers)
                     
-                    if response.status_header == 200 or response.status_code == 200:
+                    if response.status_code == 200:
                         result = response.json()
                         # Extract the text answer returned by Agnes AI
                         ai_script = result["choices"][0]["message"]["content"]
