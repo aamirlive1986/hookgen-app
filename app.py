@@ -35,7 +35,7 @@ else:
                 
                 # Agnes AI API Configuration
                 AGNES_API_KEY = "sk-jgAtOKDypV6DaWJT8Gc4Dg74OGQvKuvilwiusbLaltdCmdCq"
-                url = "https://api.agnes-ai.com/v1/chat/completions"
+                url = "https://apihub.agnes-ai.com/v1/chat/completions"
                 
                 headers = {
                     "Authorization": f"Bearer {AGNES_API_KEY}",
