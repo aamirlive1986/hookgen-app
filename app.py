@@ -31,7 +31,7 @@ else:
             with st.spinner("Agnes AI is analyzing viral trends and writing your script..."):
                 
                 # Constructing the exact prompt payload
-                system_prompt = f"You are an expert viral video strategist. Write 5 different high-retention opening hooks and a 30-second high-energy script for the topic: '{topic}', specifically tar[...]
+                system_prompt = f"You are an expert viral video strategist. Write 5 different high-retention opening hooks and a 30-second high-energy script for the topic: '{topic}', specifically targeted at {audience}. Use a {tone} tone. Make it engaging and viral-worthy."
                 
                 # Agnes AI API Configuration
                 # Replace 'YOUR_AGNES_API_KEY' with your actual key from platform.agnes-ai.com
